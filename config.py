@@ -37,7 +37,7 @@ AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_chan
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 support_chat_id = environ.get('SUPPORT_CHAT_ID')
 
-LOG_CHANNEL = "-1001361102488"
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
 
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION")
