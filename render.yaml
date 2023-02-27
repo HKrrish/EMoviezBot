@@ -1,0 +1,21 @@
+services:
+  - type: web
+    plan: free
+    name: EMoviezBot 
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    repo: https://github.com/HKrrish/EMoviezBot.git      
+    branch: main
+    envVars:
+      - key: BOT_TOKEN 
+        sync: false
+      - key: API_ID 
+        sync: false
+      - key: API_HASH 
+        sync: false
+      - key: DB_URL 
+        sync: false
+      - key: ADMINS
+        sync: false    
+    autoDeploy: false 
