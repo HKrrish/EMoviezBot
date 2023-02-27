@@ -1,0 +1,32 @@
+#--- Pyrogram ---#
+pyrogram==2.0.35
+TgCrypto
+
+#--- for web support ---#
+aiohttp
+
+#--- for Rename ---#
+humanize
+hachoir
+
+#--- Database ---#
+pymongo[srv]==3.11.4
+motor==2.4.0
+marshmallow==3.14.1
+umongo==3.0.1
+
+#--- Other ---# 
+aiofiles
+Pillow
+dnspython
+requests
+bs4
+wget
+gTTS
+ujson
+datetime
+pytz
+speedtest-cli
+psutil
+IMDbPY==2022.7.9
+beautifulsoup4
