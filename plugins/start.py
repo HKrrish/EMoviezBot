@@ -61,9 +61,9 @@ async def cb_handler(client, query: CallbackQuery):
     data = query.data 
     if data == "start":
         await query.message.edit_text(
-            text=f"""👋 Hai {query.from_user.mention} \nI'm Movie Provider Bot. You can use me inline.""",
+            text=f"""👋 Hai {query.from_user.mention} \nI'm Simple Movie Searcher Bot.** 🎥\n\nYou can use me to search any movie. Just press below Button and start searching.""",
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton('About', callback_data='about'),
+                InlineKeyboardButton('Search Movie', switch_inline_query_current_chat=''),
                 InlineKeyboardButton('Help', callback_data='help')
                 ]]
                 )
