@@ -8,12 +8,17 @@ from helper.txt import mr
 from helper.database import db
 from config import START_PIC, FLOOD, ADMINS, LOG_CHANNEL 
 
+LOG_TEXT_P = """#NewUser
+ID - <code>{}</code>
+Name - {}
+"""
 
 @Client.on_message(filters.private & filters.command(["start"]))
 async def start(client, message):
     user = message.from_user
     if not await db.is_user_exist(user.id):
-        await db.add_user(user.id)             
+        await db.add_user(user.id) 
+        await client.send_message(LOG_CHANNEL, text=LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))            
     txt=f"**👋 Hai {user.mention},\nI'm Simple Movie Searcher Bot.** 🎥\n\nYou can use me to search any movie. Just press below Button and start searching."
     button=InlineKeyboardMarkup([[
         InlineKeyboardButton('Search Here', switch_inline_query_current_chat=''),
