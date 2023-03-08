@@ -10,7 +10,7 @@ a = None
 query = None
 
 
-@Client.on_message(filters.command(["pb"]))
+@Client.on_message(filters.command(["torr_pb"]))
 async def findpb(_, message):
     global m
     global i
@@ -21,10 +21,10 @@ async def findpb(_, message):
     except:
         pass
     if len(message.command) < 2:
-        await message.reply_text("Usage: /pb query")
+        await message.reply_text("Use: /torr_pb `movie/series`")
         return
     query = message.text.split(None, 1)[1].replace(" ", "%20")
-    m = await message.reply_text("Searching")
+    m = await message.reply_text("Searching...")
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(f"https://api.api-zero.workers.dev/piratebay/{query}") \
@@ -34,15 +34,16 @@ async def findpb(_, message):
         await m.edit_text("Found Nothing.")
         return
     result = (
-        f"**Page - {i+1}**\n\n"
-        f"➲Name: {a[i]['Name']}\n"
-        f"➲{a[i]['Uploader']} on "
+        f"**--Page-- - {i+1}**\n\n"
+        f"🎥 **Name**: {a[i]['Name']}\n\n"
+        f"• **Uploader**: {a[i]['Uploader']} on "
         f"{a[i]['Date']}\n" 
-        f"➲Size: {a[i]['Size']}\n"
-        f"➲Leechers: {a[i]['Leechers']} || "
-        f"➲Seeders: {a[i]['Seeders']}\n"
-        f"➲Type: {a[i]['Category']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"• **Size**: {a[i]['Size']}\n"
+        f"• **Leechers**: {a[i]['Leechers']} || "
+        f"• **Seeders**: {a[i]['Seeders']}\n"
+        f"• **Type**: {a[i]['Category']}\n\n"
+        f"🧲 **--Magnet--**: `{a[i]['Magnet']}`\n\n"
+        f"~ (@EMoviezBot) ~"
     )
     await m.edit_text(
         result,
@@ -68,15 +69,16 @@ async def callback_query_next(_, message):
     global query
     i += 1
     result = (
-        f"**Page - {i+1}**\n\n"
-        f"➲Name: {a[i]['Name']}\n"
-        f"➲{a[i]['Uploader']} on "
+        f"**--Page-- - {i+1}**\n\n"
+        f"🎥 **Name**: {a[i]['Name']}\n\n"
+        f"• **Uploader**: {a[i]['Uploader']} on "
         f"{a[i]['Date']}\n" 
-        f"➲Size: {a[i]['Size']}\n"
-        f"➲Leechers: {a[i]['Leechers']} || "
-        f"➲Seeders: {a[i]['Seeders']}\n"
-        f"➲Type: {a[i]['Category']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"• **Size**: {a[i]['Size']}\n"
+        f"• **Leechers**: {a[i]['Leechers']} || "
+        f"• **Seeders**: {a[i]['Seeders']}\n"
+        f"• **Type**: {a[i]['Category']}\n\n"
+        f"🧲 **--Magnet--**: `{a[i]['Magnet']}`\n\n"
+        f"~ (@EMoviezBot) ~"
     )
     await m.edit_text(
         result,
@@ -105,15 +107,16 @@ async def callback_query_previous(_, message):
     global query
     i -= 1
     result = (
-        f"**Page - {i+1}**\n\n"
-        f"➲Name: {a[i]['Name']}\n"
-        f"➲{a[i]['Uploader']} on "
+        f"**--Page-- - {i+1}**\n\n"
+        f"🎥 **Name**: {a[i]['Name']}\n\n"
+        f"• **Uploader**: {a[i]['Uploader']} on "
         f"{a[i]['Date']}\n" 
-        f"➲Size: {a[i]['Size']}\n"
-        f"➲Leechers: {a[i]['Leechers']} || "
-        f"➲Seeders: {a[i]['Seeders']}\n"
-        f"➲Type: {a[i]['Category']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"• **Size**: {a[i]['Size']}\n"
+        f"• **Leechers**: {a[i]['Leechers']} || "
+        f"• **Seeders**: {a[i]['Seeders']}\n"
+        f"• **Type**: {a[i]['Category']}\n\n"
+        f"🧲 **--Magnet--**: `{a[i]['Magnet']}`\n\n"
+        f"~ (@EMoviezBot) ~"
     )
     await m.edit_text(
         result,
