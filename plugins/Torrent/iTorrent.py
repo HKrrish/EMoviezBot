@@ -31,14 +31,14 @@ async def finditor(_, message):
                     as resp:
                 a = json.loads(await resp.text())
     except:
-        await m.edit("Found Nothing.")
+        await m.edit_text("Found Nothing.")
         return
     result = (
         f"**Page - {i+1}**\n\n"
         f"➲Name: {a[i]['name']}\n"
         f"➲Link: `{a[i]['link']}`\n\n\n"
     )
-    await m.edit(
+    await m.edit_text(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -66,7 +66,7 @@ async def callback_query_next(_, message):
         f"➲Name: {a[i]['name']}\n"
         f"➲Link: `{a[i]['link']}`\n\n\n"
     )
-    await m.edit(
+    await m.edit_text(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -97,7 +97,7 @@ async def callback_query_previous(_, message):
         f"➲Name: {a[i]['name']}\n"
         f"➲Link: `{a[i]['link']}`\n\n\n"
     )
-    await m.edit(
+    await m.edit_text(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
