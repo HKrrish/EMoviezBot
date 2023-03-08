@@ -19,7 +19,7 @@ async def start(client, message):
     if not await db.is_user_exist(user.id):
         await db.add_user(user.id) 
         await client.send_message(LOG_CHANNEL, text=LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))            
-    txt=f"**👋 Hai {user.mention},\nI'm Simple Movie Searcher Bot.** 🎥\n\nYou can use me to search any movie. Just press below Button and start searching."
+    txt=f"**👋 Hai {user.mention},\nI'm Simple Movie Searcher Bot.** 🎥\n\nYou can use me to search any good movie. Just press below Button and start searching."
     button=InlineKeyboardMarkup([[
         InlineKeyboardButton('Search Here', switch_inline_query_current_chat=''),
         InlineKeyboardButton('Go Inline', switch_inline_query='')
@@ -61,13 +61,18 @@ async def cb_handler(client, query: CallbackQuery):
     data = query.data 
     if data == "start":
         await query.message.edit_text(
-            text=f"""👋 Hai {query.from_user.mention} \nI'm Simple Movie Searcher Bot.** 🎥\n\nYou can use me to search any movie. Just press below Button and start searching.""",
+            text=f"""👋 Hai {query.from_user.mention} \nI'm Simple Movie Searcher Bot.** 🎥\n\nYou can use me to search any good movie. Just press below Button and start searching.""",
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton('Search Movie', switch_inline_query_current_chat=''),
-                InlineKeyboardButton('Help', callback_data='help')
-                ]]
-                )
+               InlineKeyboardButton('Search Here', switch_inline_query_current_chat=''),
+               InlineKeyboardButton('Go Inline', switch_inline_query='')
+               ],[
+               InlineKeyboardButton('DMCA', callback_data='dmca'),
+               InlineKeyboardButton('Help', callback_data='help')
+               ],[
+               InlineKeyboardButton('Channel', url='https://t.me/The_Entertainment')
+               ]]
             )
+       )
     elif data == "help":
         await query.message.edit_text(
             text=mr.HELP_TXT,
