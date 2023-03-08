@@ -1,7 +1,7 @@
 import os
 import aiohttp
 import json
-from pyrogram import Client, filters, emoji
+from pyrogram import Client, filters, emoji, enums 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
@@ -12,7 +12,7 @@ query = None
 
 
 @Client.on_message(filters.command(["ni"]))
-async def find(_, message):
+async def findni(_, message):
     global m
     global i
     global a
@@ -57,7 +57,7 @@ async def find(_, message):
                 ]
             ]
         ),
-        parse_mode="markdown",
+        parse_mode=enums.ParseMode.MARKDOWN,
     )
 
 
@@ -94,7 +94,7 @@ async def callback_query_next(_, message):
                 ]
             ]
         ),
-        parse_mode="markdown",
+        parse_mode=enums.ParseMode.MARKDOWN,
     )
 
 
@@ -130,7 +130,7 @@ async def callback_query_previous(_, message):
                 ]
             ]
         ),
-        parse_mode="markdown",
+        parse_mode=enums.ParseMode.MARKDOWN,
     )
 
 
