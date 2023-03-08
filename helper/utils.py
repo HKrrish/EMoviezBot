@@ -14,6 +14,11 @@ import asyncio
 import requests
 from config import *
 
+BTN_URL_REGEX = re.compile(
+    r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))"
+)
+
+imdb = IMDb() 
 
 async def progress_for_pyrogram(current, total, ud_type, message, start):
 
