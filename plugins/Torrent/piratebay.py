@@ -31,7 +31,7 @@ async def findpb(_, message):
                     as resp:
                 a = json.loads(await resp.text())
     except:
-        await m.edit("Found Nothing.")
+        await m.edit_text("Found Nothing.")
         return
     result = (
         f"**Page - {i+1}**\n\n"
@@ -44,7 +44,7 @@ async def findpb(_, message):
         f"➲Type: {a[i]['Category']}\n"
         f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
     )
-    await m.edit(
+    await m.edit_text(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -78,7 +78,7 @@ async def callback_query_next(_, message):
         f"➲Type: {a[i]['Category']}\n"
         f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
     )
-    await m.edit(
+    await m.edit_text(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -115,7 +115,7 @@ async def callback_query_previous(_, message):
         f"➲Type: {a[i]['Category']}\n"
         f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
     )
-    await m.edit(
+    await m.edit_text(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
