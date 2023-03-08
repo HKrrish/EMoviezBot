@@ -1,3 +1,4 @@
+#Dj
 import os
 import aiohttp
 import json
@@ -10,8 +11,8 @@ a = None
 query = None
 
 
-@Client.on_message(filters.command(["find"]))
-async def find(_, message):
+@Client.on_message(filters.command(["torrent"]))
+async def findtorr(_, message):
     global m
     global i
     global a
@@ -21,10 +22,10 @@ async def find(_, message):
     except:
         pass
     if len(message.command) < 2:
-        await message.reply_text("Usage: /find query")
+        await message.reply_text("Use: /torrent `movie/series`")
         return
     query = message.text.split(None, 1)[1].replace(" ", "%20")
-    m = await message.reply_text("Searching")
+    m = await message.reply_text("Searching...")
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(f"https://api.api-zero.workers.dev/1337x/{query}") \
@@ -35,17 +36,17 @@ async def find(_, message):
         return
     result = (
         f"**Page - {i+1}**\n\n"
-        f"➲Name: `{a[i]['Name']}`\n"
-        f"➲By {a[i]['UploadedBy']} "
+        f"🎬 **Name**: `{a[i]['Name']}`\n\n"
+        f"• **Uploaded By**: {a[i]['UploadedBy']} "
         f"{a[i]['DateUploaded']}\n" 
-        f"➲{a[i]['Type']} "
-        f"{a[i]['Category']}\n"
-        f"➲Poster: {a[i]['Poster']}\n"
-        f"➲Language: {a[i]['Language']} || "
-        f"➲Checked: {a[i]['LastChecked']}\n"
-        f"➲Seeds: {a[i]['Seeders']} & "
-        f"➲Leeches: {a[i]['Leechers']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"• **Type**: {a[i]['Type']} "
+        f"• **Category**: {a[i]['Category']}\n"
+        f"• **Language**: {a[i]['Language']}\n"
+        f"• **Checked**: {a[i]['LastChecked']}\n"
+        f"• **Seeders**: {a[i]['Seeders']} & "
+        f"• **Leeches**: {a[i]['Leechers']}\n\n"
+        f"🧲 **--Magnet--**: `{a[i]['Magnet']}`\n\n"
+        f"~ (@EMoviezBot) ~"
     )
     await m.edit_text(
         result,
@@ -72,17 +73,17 @@ async def callback_query_next(_, message):
     i += 1
     result = (
         f"**Page - {i+1}**\n\n"
-        f"➲Name: `{a[i]['Name']}`\n"
-        f"➲By {a[i]['UploadedBy']} "
+        f"🎬 **Name**: `{a[i]['Name']}`\n\n"
+        f"• **Uploaded By**: {a[i]['UploadedBy']} "
         f"{a[i]['DateUploaded']}\n" 
-        f"➲{a[i]['Type']} "
-        f"{a[i]['Category']}\n"
-        f"➲Poster: {a[i]['Poster']}\n"
-        f"➲Language: {a[i]['Language']} || "
-        f"➲Checked: {a[i]['LastChecked']}\n"
-        f"➲Seeds: {a[i]['Seeders']} & "
-        f"➲Leeches: {a[i]['Leechers']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"• **Type**: {a[i]['Type']} "
+        f"• **Category**: {a[i]['Category']}\n"
+        f"• **Language**: {a[i]['Language']}\n"
+        f"• **Checked**: {a[i]['LastChecked']}\n"
+        f"• **Seeders**: {a[i]['Seeders']} & "
+        f"• **Leeches**: {a[i]['Leechers']}\n\n"
+        f"🧲 **--Magnet--**: `{a[i]['Magnet']}`\n\n"
+        f"~ (@EMoviezBot) ~"
     )
     await m.edit_text(
         result,
@@ -112,17 +113,17 @@ async def callback_query_previous(_, message):
     i -= 1
     result = (
         f"**Page - {i+1}**\n\n"
-        f"➲Name: `{a[i]['Name']}`\n"
-        f"➲By {a[i]['UploadedBy']} "
+        f"🎬 **Name**: `{a[i]['Name']}`\n\n"
+        f"• **Uploaded By**: {a[i]['UploadedBy']} "
         f"{a[i]['DateUploaded']}\n" 
-        f"➲{a[i]['Type']} "
-        f"{a[i]['Category']}\n"
-        f"➲Poster: {a[i]['Poster']}\n"
-        f"➲Language: {a[i]['Language']} || "
-        f"➲Checked: {a[i]['LastChecked']}\n"
-        f"➲Seeds: {a[i]['Seeders']} & "
-        f"➲Leeches: {a[i]['Leechers']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"• **Type**: {a[i]['Type']} "
+        f"• **Category**: {a[i]['Category']}\n"
+        f"• **Language**: {a[i]['Language']}\n"
+        f"• **Checked**: {a[i]['LastChecked']}\n"
+        f"• **Seeders**: {a[i]['Seeders']} & "
+        f"• **Leeches**: {a[i]['Leechers']}\n\n"
+        f"🧲 **--Magnet--**: `{a[i]['Magnet']}`\n\n"
+        f"~ (@EMoviezBot) ~"
     )
     await m.edit_text(
         result,
