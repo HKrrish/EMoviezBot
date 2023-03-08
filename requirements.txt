@@ -30,3 +30,13 @@ speedtest-cli
 psutil
 IMDbPY==2022.7.9
 beautifulsoup4
+asyncio==3.4.3
+imdbpy
+python-arq
+ffmpeg-python
+
+#--- Telegraph ---#
+telegraph==1.4.1
+
+#--- G-Translate --#
+googletrans==3.1.0a0
