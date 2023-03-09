@@ -35,8 +35,8 @@ async def findtorr(_, message):
         await m.edit_text("Found Nothing.")
         return
     result = (
-        f"**Page - {i+1}**\n\n"
-        f"🎬 **Name**: `{a[i]['Name']}`\n\n"
+        f"**--Page-- - {i+1}**\n\n"
+        f"🎬 **Name**: {a[i]['Name']}\n\n"
         f"• **Uploaded By**: {a[i]['UploadedBy']} "
         f"{a[i]['DateUploaded']}\n" 
         f"• **Type**: {a[i]['Type']} "
@@ -72,8 +72,8 @@ async def callback_query_next(_, message):
     global query
     i += 1
     result = (
-        f"**Page - {i+1}**\n\n"
-        f"🎬 **Name**: `{a[i]['Name']}`\n\n"
+        f"**--Page-- - {i+1}**\n\n"
+        f"🎬 **Name**: {a[i]['Name']}\n\n"
         f"• **Uploaded By**: {a[i]['UploadedBy']} "
         f"{a[i]['DateUploaded']}\n" 
         f"• **Type**: {a[i]['Type']} "
@@ -112,8 +112,8 @@ async def callback_query_previous(_, message):
     global query
     i -= 1
     result = (
-        f"**Page - {i+1}**\n\n"
-        f"🎬 **Name**: `{a[i]['Name']}`\n\n"
+        f"**--Page-- - {i+1}**\n\n"
+        f"🎬 **Name**: {a[i]['Name']}\n\n"
         f"• **Uploaded By**: {a[i]['UploadedBy']} "
         f"{a[i]['DateUploaded']}\n" 
         f"• **Type**: {a[i]['Type']} "
