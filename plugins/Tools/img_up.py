@@ -31,14 +31,14 @@ async def PictureUploader(client, message):
             shutil.copyfileobj(r.raw, stk)
         if message.reply_to_message:
             await client.send_photo(message.chat.id, "nana/cache/pic.png",
-                                    reply_to_message_id=message.reply_to_message.message_id)
+                                    reply_to_message_id=message.reply_to_message.message.id)
         else:
             await client.send_photo(message.chat.id, "nana/cache/pic.png")
         os.remove("nana/cache/pic.png")
     else:
         if message.reply_to_message:
             await client.send_photo(message.chat.id, photo, "",
-                                    reply_to_message_id=message.reply_to_message.message_id)
+                                    reply_to_message_id=message.reply_to_message.message.id)
         else:
             await client.send_photo(message.chat.id, photo, "")
 
@@ -56,12 +56,12 @@ async def StickerUploader(client, message):
             shutil.copyfileobj(r.raw, stk)
         if message.reply_to_message:
             await client.send_sticker(message.chat.id, "nana/cache/stiker.png",
-                                      reply_to_message_id=message.reply_to_message.message_id)
+                                      reply_to_message_id=message.reply_to_message.message.id)
         else:
             await client.send_sticker(message.chat.id, "nana/cache/stiker.png")
         os.remove("nana/cache/stiker.png")
     else:
         if message.reply_to_message:
-            await client.send_sticker(message.chat.id, photo, reply_to_message_id=message.reply_to_message.message_id)
+            await client.send_sticker(message.chat.id, photo, reply_to_message_id=message.reply_to_message.message.id)
         else:
             await client.send_sticker(message.chat.id, photo)
