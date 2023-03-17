@@ -1,6 +1,7 @@
 #--- Pyrogram ---#
 pyrogram==2.0.35
 TgCrypto
+pyromod
 
 #--- for web support ---#
 aiohttp
@@ -34,7 +35,7 @@ imdbpy
 python-arq
 ffmpeg-python
 pyDownload==0.0.1.dev4
-pySmartDL==1.3.3
+pySmartDL==1.3.4
 pydrive==1.3.1
 lxml
 jikanpy==4.2.1
