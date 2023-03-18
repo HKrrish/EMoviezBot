@@ -19,11 +19,11 @@ if __name__ == "__main__" :
         api_hash=API_HASH,
         plugins=plugins
     )
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"       
-        await web.TCPSite(app, bind_address, PORT).start()     
-        print(f"Started ⚡️")
+    app = web.AppRunner(await web_server())
+    await app.setup()
+    bind_address = "0.0.0.0"       
+    await web.TCPSite(app, bind_address, PORT).start()     
+    print(f"Started ⚡️")
       
 
     print("Waking Up Client 1")
