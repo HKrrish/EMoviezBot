@@ -2,9 +2,10 @@ import os, asyncio
 from pyrogram import Client, filters
 from pyrogram.types import *
 from telegraph import upload_file
+from bot import app2
 
 
-@Client.on_message(filters.command("telegraph") & filters.private)
+@app2.on_message(filters.command("telegraph") & filters.private)
 async def telegraph_upload(bot, update):
     replied = update.reply_to_message
     if not replied:
