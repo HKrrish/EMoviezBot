@@ -18,7 +18,7 @@ class Bot(Client):
         app2 = Client( # This is 2nd client. add much as you wish. but remember to edit starting process
             "Client2",
             bot_token=BOT_TOKEN2,
-            api_id=APP_ID,
+            api_id=API_ID,
             api_hash=API_HASH,
             plugins=plugins
         )
