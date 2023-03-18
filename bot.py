@@ -20,7 +20,7 @@ class Bot(Client):
             bot_token=BOT_TOKEN2,
             api_id=API_ID,
             api_hash=API_HASH,
-            plugins=plugins
+            plugins={"root": "plugins"}
         )
 
     async def start(self):
