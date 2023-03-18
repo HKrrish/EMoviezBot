@@ -15,6 +15,13 @@ class Bot(Client):
             plugins={"root": "plugins"},
             sleep_threshold=15,
         )
+        app2 = Client( # This is 2nd client. add much as you wish. but remember to edit starting process
+            "Client2",
+            bot_token=BOT_TOKEN2,
+            api_id=APP_ID,
+            api_hash=API_HASH,
+            plugins=plugins
+        )
 
     async def start(self):
         await super().start()
@@ -36,3 +43,6 @@ class Bot(Client):
 
 bot=Bot()
 bot.run()
+app2.start() # Starting Client 2
+print("Everything Ok! Enjoy Multi Client! Lol!") # Remove this shit if you like lmao
+app2.idle()
