@@ -26,7 +26,7 @@ class temp(object):
 API_ID = os.environ.get("API_ID", "")
 API_HASH = os.environ.get("API_HASH", "")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "") 
-BOT_TOKEN2 = os.environ.get("BOT_TOKEN2", "") 
+
 #jaroora nhi hai vese
 FORCE_SUB = os.environ.get("FORCE_SUB", "") 
 
